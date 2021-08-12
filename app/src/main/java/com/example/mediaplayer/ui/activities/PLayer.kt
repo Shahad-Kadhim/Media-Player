@@ -1,11 +1,11 @@
-package com.example.mediaplayer.ui
+package com.example.mediaplayer.ui.activities
 
 import android.view.LayoutInflater
 import com.example.mediaplayer.databinding.ActivityPlayerBinding
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
 
-class PLayer :BaseActivity<ActivityPlayerBinding>() {
+class PLayer : BaseActivity<ActivityPlayerBinding>() {
     override val TAG ="PLAYER_ACTIVITY"
     override val inflater: (LayoutInflater) -> ActivityPlayerBinding=ActivityPlayerBinding::inflate
     var playbackPosition = 0L

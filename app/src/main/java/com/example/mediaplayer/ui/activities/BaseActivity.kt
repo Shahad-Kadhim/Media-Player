@@ -1,12 +1,9 @@
-package com.example.mediaplayer.ui
+package com.example.mediaplayer.ui.activities
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
-import com.example.mediaplayer.R
-import com.example.mediaplayer.databinding.ActivityMainBinding
 
 abstract class BaseActivity<VB:ViewBinding> :AppCompatActivity(){
     abstract  val TAG: String

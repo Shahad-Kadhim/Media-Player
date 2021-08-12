@@ -13,10 +13,10 @@
         android:hardwareAccelerated="true"
         android:theme="@style/Theme.MediaPlayer">
         <activity
-            android:name=".ui.PLayer"
+            android:name=".ui.activities.PLayer"
             android:exported="true" />
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
