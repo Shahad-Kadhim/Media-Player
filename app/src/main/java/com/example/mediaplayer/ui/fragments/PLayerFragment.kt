@@ -1,20 +1,37 @@
 package com.example.mediaplayer.ui.fragments
 
+import android.app.AlertDialog
 import android.view.LayoutInflater
 import com.example.mediaplayer.databinding.FragmentPlayerBinding
+import com.example.mediaplayer.model.response.Item
 import com.example.mediaplayer.presenter.PlayerPresenter
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
 
 class PLayerFragment : BaseFragment<FragmentPlayerBinding>(),IPlayerView {
+
     override val TAG ="PLAYER_Fragment"
     override val bindingInflater: (LayoutInflater) -> FragmentPlayerBinding=FragmentPlayerBinding::inflate
-    var playbackPosition = 0L
-    val presenter=PlayerPresenter(this)
+    private var playbackPosition = 0L
+    private val presenter=PlayerPresenter(this)
+    private lateinit var currnetFilm:Item
+
+
+    override fun callBack() {
+        binding?.info?.setOnClickListener {
+            AlertDialog.Builder(activity)
+                .setTitle(currnetFilm.title)
+                .setMessage("${ currnetFilm.description }.\n\n Directed by : ${currnetFilm.director}")
+                .create()
+                .show()
+        }
+    }
+
 
     private fun initialPlayer(){
         arguments?.let {
-            presenter.getMediaItem(it.getString("VideoURL")!!)
+            currnetFilm= it.getParcelable("VideoURL")!!
+            presenter.getMediaItem(currnetFilm.url)
         }
     }
 
@@ -22,10 +39,10 @@ class PLayerFragment : BaseFragment<FragmentPlayerBinding>(),IPlayerView {
         activity?.applicationContext?.let { context ->
             SimpleExoPlayer.Builder(context).build().also { exoPlayer ->
                 exoPlayer.setMediaItem(mediaItem)
-                exoPlayer.playWhenReady = true
                 exoPlayer.seekTo(playbackPosition)
-                exoPlayer.prepare()
                 binding?.videoView?.player = exoPlayer
+                exoPlayer.playWhenReady = true
+                exoPlayer.prepare()
             }
         }
     }
@@ -50,6 +67,5 @@ class PLayerFragment : BaseFragment<FragmentPlayerBinding>(),IPlayerView {
     }
 
     override fun setup() {}
-    override fun callBack() {}
 
 }

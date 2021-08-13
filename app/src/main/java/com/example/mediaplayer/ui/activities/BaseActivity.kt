@@ -3,6 +3,7 @@ package com.example.mediaplayer.ui.activities
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
+import com.example.mediaplayer.R
 import com.example.mediaplayer.ui.BaseInterface
 
 abstract class BaseActivity<VB:ViewBinding> :AppCompatActivity(), BaseInterface<VB> {
@@ -13,6 +14,7 @@ abstract class BaseActivity<VB:ViewBinding> :AppCompatActivity(), BaseInterface<
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding=bindingInflater(layoutInflater)
+        setTheme(R.style.Theme_MediaPlayer)
         setContentView(requireNotNull(_binding).root)
         setup()
         callBack()

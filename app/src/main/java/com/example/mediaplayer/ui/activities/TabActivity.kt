@@ -15,7 +15,7 @@ class TabActivity : BaseActivity<ActivityTabBinding>() {
 
     private fun addFragment(fragment: Fragment) {
 
-        binding?.fragmentContainer?.let { supportFragmentManager.beginTransaction().add(it.id,fragment).addToBackStack("").commit() }
+        binding?.fragmentContainer?.let { supportFragmentManager.beginTransaction().replace(it.id,fragment).addToBackStack("").commit() }
 
     }
 

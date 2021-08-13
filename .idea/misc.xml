@@ -3,11 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/layout/activity_player.xml" value="0.12454710144927536" />
-        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/layout/activity_tab.xml" value="0.20677083333333332" />
-        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/layout/fragment_home.xml" value="0.20677083333333332" />
-        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/layout/item_film.xml" value="0.22" />
+        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/drawable/chip.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/drawable/ic_baseline_access_time_24.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/drawable/ic_baseline_error_24.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/drawable/ic_camera_facetime_record_video_cinema_icon.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/drawable/ic_film.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/drawable/ic_film__3_.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/drawable/ic_film__4_.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/drawable/reg.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/drawable/req.xml" value="0.2158974358974359" />
+        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/drawable/splash_screen.xml" value="0.22291666666666668" />
+        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/layout/activity_player.xml" value="0.22" />
+        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/layout/fragment_home.xml" value="0.19074074074074074" />
+        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/layout/fragment_player.xml" value="0.1" />
+        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/layout/item_film.xml" value="0.33" />
+        <entry key="..\:/Users/MJ/MediaPlayer/app/src/main/res/layout/slider_item.xml" value="0.16" />
       </map>
     </option>
   </component>
