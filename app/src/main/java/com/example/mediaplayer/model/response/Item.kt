@@ -1,4 +1,4 @@
-package com.example.mediaplayer.response
+package com.example.mediaplayer.model.response
 
 data class Item(
     val art: String,

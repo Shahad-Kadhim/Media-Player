@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mediaplayer.R
 import com.example.mediaplayer.databinding.ItemFilmBinding
-import com.example.mediaplayer.response.Item
+import com.example.mediaplayer.model.response.Item
 
 class RecycleAdapter(private var film: List<Item>, private val listener: FilmInteractionListener) :
     RecyclerView.Adapter<RecycleAdapter.ItemHolderView>() {
@@ -15,6 +15,7 @@ class RecycleAdapter(private var film: List<Item>, private val listener: FilmInt
     class ItemHolderView(view: View) : RecyclerView.ViewHolder(view) {
         var binding= ItemFilmBinding.bind(view)
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)=ItemHolderView(LayoutInflater.from(parent.context).inflate(R.layout.item_film, parent, false))
 
     override fun onBindViewHolder(holder: ItemHolderView, position: Int) {
