@@ -1,6 +1,6 @@
 # YouTube
- Okhttp
- Gson 
- MVP pattern design 
- Kotlin flow 
- ExoPlayer
+ - Okhttp
+ - Gson 
+ - MVP pattern design 
+ - Kotlin flow 
+ - ExoPlayer
