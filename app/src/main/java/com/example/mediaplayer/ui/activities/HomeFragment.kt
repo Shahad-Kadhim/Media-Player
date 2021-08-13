@@ -5,7 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
-import com.example.mediaplayer.databinding.ActivityMainBinding
+import com.example.mediaplayer.databinding.FragmentHomeBinding
+import com.example.mediaplayer.databinding.FragmentPlayerBinding
 import com.example.mediaplayer.network.Client
 import com.example.mediaplayer.response.Item
 import com.example.mediaplayer.response.data
@@ -21,10 +22,10 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 
-class MainActivity : BaseActivity<ActivityMainBinding>(),FilmInteractionListener {
+class HomeFragment : BaseActivity<FragmentHomeBinding>(),FilmInteractionListener {
     override val TAG="MAIN_ACTIVITY"
     private lateinit var mAdapter:RecycleAdapter
-    override val inflater: (LayoutInflater) -> ActivityMainBinding=ActivityMainBinding::inflate
+    override val inflater: (LayoutInflater) -> FragmentHomeBinding=FragmentHomeBinding::inflate
     @InternalCoroutinesApi
     override fun setup() {
         lifecycleScope.launch {
@@ -32,7 +33,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),FilmInteractionListener
              emit(Status.Loading)
              emit(Client.getFilms())
          }.flowOn(Dispatchers.IO).catch {
-             Toast.makeText(this@MainActivity, "check internet connection", Toast.LENGTH_SHORT).show()
+             Toast.makeText(this@HomeFragment, "check internet connection", Toast.LENGTH_SHORT).show()
          }.collect { onFilmsResponse(it) }
         }
     }
@@ -60,13 +61,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),FilmInteractionListener
             binding.apply {
                 recycle.run{
                     show()
-                    mAdapter=RecycleAdapter(films.shuffled(), this@MainActivity).apply {
+                    mAdapter=RecycleAdapter(films.shuffled(), this@HomeFragment).apply {
                         adapter=this
                     }
                 }
                 sliderCard.show()
                 slider.setSliderAdapter(
-                        SliderAdapter(films.filter { it.ratings!=null },this@MainActivity))
+                        SliderAdapter(films.filter { it.ratings!=null },this@HomeFragment))
             }
         }
     }
@@ -103,7 +104,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),FilmInteractionListener
         }
     }
     override fun onClickItem(film:Item) {
-        Intent(this, PLayer::class.java).apply {
+        Intent(this, PlayerFragment::class.java).apply {
             putExtra("VideoURL",film.url)
             startActivity(this)
         }

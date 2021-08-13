@@ -2,13 +2,13 @@ package com.example.mediaplayer.ui.activities
 
 import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
-import com.example.mediaplayer.databinding.ActivityPlayerBinding
+import com.example.mediaplayer.databinding.FragmentPlayerBinding
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
 
-class PLayer : BaseActivity<ActivityPlayerBinding>() {
+class PlayerFragment : BaseActivity<FragmentPlayerBinding>() {
     override val TAG ="PLAYER_ACTIVITY"
-    override val inflater: (LayoutInflater) -> ActivityPlayerBinding=ActivityPlayerBinding::inflate
+    override val inflater: (LayoutInflater) -> FragmentPlayerBinding=FragmentPlayerBinding::inflate
     var playbackPosition = 0L
 
     private fun initialPlayer(){
