@@ -1,6 +1,7 @@
 package com.example.mediaplayer.ui.activities
 
 import android.view.LayoutInflater
+import androidx.appcompat.app.AlertDialog
 import com.example.mediaplayer.databinding.ActivityPlayerBinding
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
@@ -42,7 +43,11 @@ class PLayer : BaseActivity<ActivityPlayerBinding>() {
     }
 
     override fun setup() {}
-    override fun callback() {}
+    override fun callback() {
+        binding.info.setOnClickListener {
+            AlertDialog.Builder(this).setTitle("fjkk").create().show()
+        }
+    }
 
 
 }

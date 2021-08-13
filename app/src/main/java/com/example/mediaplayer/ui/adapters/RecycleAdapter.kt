@@ -29,10 +29,9 @@ class RecycleAdapter(private var films: List<Item>, private val listener: FilmIn
             filmDescription.text=s.description
             filmYear.text=(s.year).toString()
             if ( s.ratings != null) {
-                filmRank.visibility=View.VISIBLE
-                filmRank.text=s.ratings.toString()
+                filmRating.rating= 4.3F
             }else{
-                filmRank.visibility=View.INVISIBLE
+                filmRating.rating=0f
             }
             Glide.with(holder.itemView.context).load(s.art).into(filmImage)
             root.setOnClickListener { listener.onClickItem(s) }

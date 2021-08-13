@@ -60,15 +60,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),FilmInteractionListener
             binding.apply {
                 recycle.run{
                     show()
-                    mAdapter=RecycleAdapter(films, this@MainActivity).apply {
+                    mAdapter=RecycleAdapter(films.shuffled(), this@MainActivity).apply {
                         adapter=this
                     }
                 }
-                slider.run {
-                    show()
-                    setSliderAdapter(
+                sliderCard.show()
+                slider.setSliderAdapter(
                         SliderAdapter(films.filter { it.ratings!=null },this@MainActivity))
-                }
             }
         }
     }
@@ -83,21 +81,21 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),FilmInteractionListener
             chipGroup.setOnCheckedChangeListener { _, checkedId ->
                 when (checkedId) {
                      all.id-> {
-                        slider.show()
+                        sliderCard.show()
                         mAdapter.setData(mutableListOf<Item>().apply {
                             mresponse.data.feed.all { this.addAll(it.items) }
-                        })
+                        }.shuffled())
                     }
                     historical.id -> {
-                        slider.hide()
+                        sliderCard.hide()
                         mAdapter.setData(mresponse.data.feed[0].items)
                     }
                     chaplin.id -> {
-                        slider.hide()
+                        sliderCard.hide()
                         mAdapter.setData(mresponse.data.feed[2].items)
                     }
                     feature.id -> {
-                        slider.hide()
+                        sliderCard.hide()
                         mAdapter.setData(mresponse.data.feed[1].items)
                     }
                 }
@@ -116,7 +114,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),FilmInteractionListener
             progressBar.hide()
             imageError.hide()
             recycle.hide()
-            slider.hide()
+            sliderCard.hide()
         }
     }
 
@@ -127,7 +125,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(),FilmInteractionListener
     private fun View.show() {
         this.visibility = View.VISIBLE
     }
-
 
     companion object{
         lateinit var mresponse:Status.Success<data>

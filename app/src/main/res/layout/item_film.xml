@@ -6,6 +6,7 @@
     android:layout_marginVertical="10dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="5dp"
+    android:backgroundTint="#111111"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools">
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,14 +19,14 @@
         app:layout_constraintEnd_toStartOf="@id/film_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
-    <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:lottie_rawRes="@raw/layer1"
-        app:layout_constraintBottom_toBottomOf="@id/film_image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"/>
+<!--    <com.airbnb.lottie.LottieAnimationView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:lottie_rawRes="@raw/layer1"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/film_image"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.3"/>-->
     <TextView
         android:id="@+id/film_title"
         android:layout_width="0dp"
@@ -35,7 +36,7 @@
         android:fontFamily="@font/roboto_medium_numbers"
         android:paddingHorizontal="8dp"
         android:layout_marginTop="8dp"
-        android:textColor="#333333"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:maxLines="2"
         android:textStyle="bold"
@@ -52,10 +53,10 @@
         android:layout_marginVertical="5dp"
         android:layout_marginHorizontal="10dp"
         android:paddingHorizontal="8dp"
-        android:textColor="#666666"
+        android:textColor="@color/white"
         android:textSize="13sp"
         android:maxLines="2"
-        app:layout_constraintBottom_toTopOf="@id/film_duration"
+        app:layout_constraintBottom_toTopOf="@id/film_rating"
         app:layout_constraintStart_toEndOf="@+id/film_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/film_title"
@@ -64,42 +65,61 @@
         android:id="@+id/film_duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="12dp"
+        android:layout_marginBottom="10dp"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="6dp"
         android:textSize="12sp"
         android:textStyle="bold"
-        android:textColor="#333333"
+        android:drawableLeft="@drawable/ic_baseline_access_time_24"
+        android:gravity="center"
+        android:drawablePadding="5dp"
+        android:drawableTint="@color/white"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@id/film_year"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/film_title"
-        app:layout_constraintTop_toBottomOf="@id/film_description"
+        app:layout_constraintTop_toBottomOf="@id/film_rating"
         tool:text="18 min"/>
     <TextView
         android:id="@+id/film_year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="12dp"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="6dp"
         android:textSize="12sp"
         android:textStyle="bold"
-        android:textColor="#333333"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:drawableTint="@color/white"
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/ic_camera_facetime_record_video_cinema_icon"
         app:layout_constraintBottom_toBottomOf="@id/film_duration"
-        app:layout_constraintEnd_toStartOf="@id/film_rank"
         app:layout_constraintStart_toEndOf="@id/film_duration"
         app:layout_constraintTop_toTopOf="@id/film_duration"
         tool:text="2903"/>
-    <TextView
-        android:id="@+id/film_rank"
+    <RatingBar
+        android:id="@+id/film_rating"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:visibility="invisible"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:textColor="#333333"
-        android:background="#FDD835"
-        app:layout_constraintBottom_toBottomOf="@id/film_duration"
-        app:layout_constraintEnd_toEndOf="@id/film_title"
-        app:layout_constraintStart_toEndOf="@id/film_year"
-        app:layout_constraintTop_toTopOf="@id/film_duration"
-        tool:text="US_TV"/>
+        android:layout_height="40dp"
+        android:numStars="5"
+        android:scaleX="0.5"
+        android:rating="3"
+        android:theme="@style/RatingBar"
+        android:scaleY="0.5"
+        android:transformPivotY="20dp"
+        android:transformPivotX="10dp"
+        android:background="#00FFFEFB"
+        app:layout_constraintTop_toBottomOf="@id/film_description"
+        app:layout_constraintStart_toStartOf="@id/film_description"
+        app:layout_constraintEnd_toEndOf="@id/film_description"
+        app:layout_constraintBottom_toTopOf="@id/film_duration" />
+<!--    <com.airbnb.lottie.LottieAnimationView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:lottie_rawRes="@raw/play"-->
+<!--        app:layout_constraintTop_toTopOf="@id/film_duration"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/film_duration"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/film_description"-->
+<!--        app:layout_constraintStart_toEndOf="@id/film_year"/>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

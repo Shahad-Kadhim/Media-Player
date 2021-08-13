@@ -3,7 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.activities.PLayer">
+    <ImageView
+        android:id="@+id/info"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:elevation="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="32dp"
+        android:src="@drawable/ic_outline_info_24"
+        />
     <com.google.android.exoplayer2.ui.PlayerView
         android:id="@+id/video_view"
         android:background="@color/black"

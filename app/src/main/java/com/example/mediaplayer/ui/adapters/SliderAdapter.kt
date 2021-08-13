@@ -10,7 +10,7 @@ import com.example.mediaplayer.response.Item
 import com.example.mediaplayer.databinding.SliderItemBinding
 
 
-class SliderAdapter(var list:List<Item>, val listener: FilmInteractionListener) :SliderViewAdapter<SliderAdapter.SliderAdapterVH>() {
+class SliderAdapter(var list:List<Item>, private val listener: FilmInteractionListener) :SliderViewAdapter<SliderAdapter.SliderAdapterVH>() {
 
     class SliderAdapterVH(itemView: View) : SliderViewAdapter.ViewHolder(itemView) {
         val binding=SliderItemBinding.bind(itemView)
